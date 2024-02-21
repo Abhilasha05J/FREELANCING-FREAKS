@@ -1,0 +1,53 @@
+<div th:replace="Header"></div>
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">User Information</h1>
+                    
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            
+                        </div>
+                        <div class="card-body">
+							<form  th:action="@{/user}" th:object="${user}" method="get">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Access</th>
+                                            <th>Permit</th>
+                                            <th>Deny</th>
+                                            
+                                        </tr>
+                                    </thead>
+                                   <!-- <tfoot>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Access</th>
+                                            <th>Permit</th>
+                                            <th>Deny</th>
+                                        </tr>
+                                    </tfoot>-->
+                                    <tbody>
+										<tr th:each="i:${user}">
+      									<td th:text="${i.username}"></td>
+                                        <td><button type="submit" class="btn btn-primary">Login</button></td>
+                                        <td><button type="submit" class="btn btn-success">Activate</button></td>
+                                        <td><button type="submit" class="btn btn-danger">Deactivate</button></td>
+    									</tr>   
+                                    </tbody>
+                                </table>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+     
+           
+  <div th:replace="Footer"></div>

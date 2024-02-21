@@ -1,0 +1,43 @@
+<div th:replace="Header"></div>
+
+                <!-- Begin Page Content -->
+                  <div class="container-fluid">
+
+        <!-- Page Heading -->
+        <h1 class="h3 mb-2 text-gray-800"></h1>
+
+
+        <!-- DataTales Example -->
+        <div class="card shadow mb-4">
+			<center>
+            <div class="card-header py-3">
+           Add new Service
+            </div>
+            </center>
+            <div class="card-body">
+                <form th:action="@{/addservice}" th:object="${services}" method="post">
+
+                    <div class="form-group ">
+                        <input type="text" class="form-control" name="serviceName" th:field="*{serviceName}"
+                            placeholder="Service Name" required="required">
+                    </div>
+
+                    <div class="form-group text-center" >
+                        <label>
+                            <input type="radio" class="form-check-input" name="status" th:field="*{status}"
+                                value="1" required="required"> Active
+                        </label>
+                        <div></div>
+                        <label>
+                            <input type="radio" class="form-check-input" name="status" th:field="*{status}"
+                                value="0" required="required"> Inactive
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+                            <div th:replace="Footer"></div>

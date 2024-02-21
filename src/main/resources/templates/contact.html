@@ -1,0 +1,52 @@
+<div th:replace="Header"></div>
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">Guest Entries</h1>
+                    
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            
+                        </div>
+                        <div class="card-body">
+							<form  th:action="@{/contact}" th:object="${contact}" method="get">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+											<th>Id</th>
+                                            <th>Email</th>
+                                        <!--    <th>See Details</th>-->
+                                            <th>Reply</th>
+                                            <th>Delete</th>     
+                                        </tr>
+                                    </thead>
+                                
+                                    <tbody>
+										<tr th:each="i:${contact}">
+											<th th:text="${i.conId}"></th>
+      									<td th:text="${i.email}"></td>
+                                  
+                  <!--                      <td><button type="submit" class="btn btn-primary">See Details</button></td>-->
+                                        <td><button type="submit" class="btn btn-success">Reply</button></td>
+                                        <!-- <td><button type="submit" class="btn btn-danger" th:href="@{/deletecontact/{conId}(con_id=${i.conId})}">Delete</button></td>
+    									-->
+    									<td>
+                                         <a th:href="@{'/deletecontact/' + ${i.conId}}" class="btn btn-danger">Delete</a>
+</td>
+
+  </tbody>
+                                </table>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+     
+           
+  <div th:replace="Footer"></div>
